@@ -1,0 +1,28 @@
+package main
+
+import "fmt"
+
+func main() {
+	input := " hallla madridd "
+	fmt.Println(firstword(input))
+}
+
+func firstword(s string) string {
+	var result string
+	j := 0
+
+	// Skip leading spaces
+	for j < len(s) && string(s[j]) == " " {
+		j++
+	}
+
+	// Extract the first word
+	for j < len(s) && string(s[j]) != " " {
+		result += string(s[j])
+		j++
+	}
+
+	return result
+}
+
+// printing first word of a string
