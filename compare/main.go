@@ -6,7 +6,7 @@ import (
 
 func main() {
 	fmt.Println(Compare("Hello!", "Hello!"))
-	fmt.Println(Compare("Salut!", "lut!"))
+	fmt.Println(Compare("Salut!", "Slut!"))
 	fmt.Println(Compare("Ola!", "Ol"))
 }
 
