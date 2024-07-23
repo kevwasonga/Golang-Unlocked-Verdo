@@ -1,0 +1,84 @@
+package main
+
+import (
+	"os"
+
+	"github.com/01-edu/z01"
+)
+
+func main() {
+	if len(os.Args) != 4 {
+		return
+	}
+
+	a := atoi(os.Args[1])
+	doop := os.Args[2]
+	b := atoi(os.Args[3])
+
+	var result int
+	var err string
+
+	switch doop {
+	case "+":
+		result = a + b
+	case "-":
+		result = a - b
+	case "*":
+		result = a * b
+	case "/":
+		if b == 0 {
+			err = "No division by 0"
+		} else {
+			result = a / b
+		}
+	case "%":
+		if b == 0 {
+			err = "No modulo by 0"
+		} else {
+			result = a % b
+		}
+	default:
+		return
+	}
+
+	if err != "" {
+		return
+	}
+
+	val := itoa(result)
+
+	for _, char := range val {
+		z01.PrintRune(char)
+	}
+	z01.PrintRune('\n')
+}
+
+func atoi(s string) int {
+	var result int
+
+	for _, char := range s {
+		result = result*10 + int(char-'0')
+	}
+	return result
+}
+
+func itoa(n int) string {
+	var result string
+
+	if n == 0 {
+		return "0"
+	}
+
+	if n < 0 {
+		result = "-"
+		n = -n
+	}
+
+	for n > 0 {
+		digit := n % 10
+		result = string(digit+'0') + result
+		n = n / 10
+	}
+
+	return result
+}
