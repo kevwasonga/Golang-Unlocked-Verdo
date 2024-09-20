@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	input := "XXII"
+	input := "MCMXCIV" //"XXII"
 
 	fmt.Println(romans(input))
 }
@@ -31,6 +31,7 @@ func romans(s string) int {
 		} else {
 			total += current
 		}
+		previous = current
 
 	}
 
