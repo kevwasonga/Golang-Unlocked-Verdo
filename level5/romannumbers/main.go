@@ -31,6 +31,7 @@ func romans(s string) int {
 		} else {
 			total += current
 		}
+		//update the last processed to be the new "previous"
 		previous = current
 
 	}
